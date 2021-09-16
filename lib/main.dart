@@ -18,10 +18,28 @@ DatabaseReference userRef =
     FirebaseDatabase.instance.reference().child("users");
 
 class MyApp extends StatelessWidget {
+  final Future<FirebaseApp>_initializationApp();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
+    return FutureBuilder(
+      future: _initialization,
+      builder: (context, snapshot){
+        if (snapshot.hasError){
+          print ("something went wrong");
+          }
+        if (snapshot.connectionState == ConnectionState.waiting){
+          return Center (child: CircularProgressIndicator());
+          }
+        return Material App(
+          debugShowCheckedModeBanner: false,
+          title:'Flutter Email & Password',
+          theme: ThemeData(
+            PrimarySwatch: Colors.deepPurple,
+            ),
+          home: LoginPage(),
+          
+          
       create: (context) => AppData(26.8851417),
       child: MaterialApp(
         title: 'Taxi Rider App',
@@ -35,7 +53,7 @@ class MyApp extends StatelessWidget {
           LoginScreen.idScreen: (context) => LoginScreen(),
           MainScreen.idScreen: (context) => MainScreen(),
         },
-        debugShowCheckedModeBanner: false,
+        
       ),
     );
   }
