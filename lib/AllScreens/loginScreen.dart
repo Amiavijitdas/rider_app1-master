@@ -5,25 +5,48 @@ import 'package:rider_app/AllScreens/RegisterScreen.dart';
 import 'package:rider_app/AllScreens/mainscreen.dart';
 import 'package:rider_app/main.dart';
 
-class LoginScreen extends StatelessWidget {
-  static const String idScreen = "login";
-  //const LoginScreen({Key? key}) : super(key: key);
-  TextEditingController emailTextEditingController = TextEditingController();
-  TextEditingController passwordTextEditingController = TextEditingController();
+class LoginPage extends StatelessWidget {
+  //static const String idScreen = "login";
+  const LoginPage({Key? key}) : super(key: key);
+  
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LohinPageState extends State<LoginPage> {
+  
+  final _formKet = GlobalKey<FormState>();
+  
+  var email = " ";
+  var password = " ";
+  
+  final emailTextEditingController = TextEditingController();
+  final passwordTextEditingController = TextEditingController();
+  
+  
+ // TextEditingController emailTextEditingController = TextEditingController();
+  //TextEditingController passwordTextEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
+      body: Form(
+        key: formKey,
         child: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
+          padding: Edge Insets.symmetric (vertical: 60.0, horizontal: 20.0),
+          child: ListView(
             children: [
-              SizedBox(
-                height: 35.0,
+              Padding (padding: const Edge Insets.all(8.0),
+              child: Image.asset("images/ill_art_login.png"),
               ),
-              Image(
+              Container (
+                margin: EdgeInsets.symmetric (vertical: 10.0),
+                child: TextFormField(
+                  autofocus: false,
+                  
+                
+              
                 image: AssetImage("images/ill_art_login.png"),
                 width: 390.0,
                 height: 250.0,
