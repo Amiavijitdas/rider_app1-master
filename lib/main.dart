@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             PrimarySwatch: Colors.deepPurple,
             ),
-          home: LoginPage(),
+          home: LoginScreen(),
           
           
       create: (context) => AppData(26.8851417),
